@@ -13,7 +13,8 @@ import javax.inject.Singleton
  */
 
 @Singleton
-class ProdutoRepository @Inject constructor(private val webservice: ProdutoWebService, private val produtoDAO: ProdutoDAO, private val executor: Executor) {
+class ProdutoRepository
+@Inject constructor(private val webservice: ProdutoWebService, private val produtoDAO: ProdutoDAO, private val executor: Executor) {
 
     fun getLog(id: Int): LiveData<Produto> {
         return produtoDAO.load(id)

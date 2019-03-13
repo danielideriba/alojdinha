@@ -13,7 +13,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 @Singleton
-class BannerRepository @Inject constructor(private val webservice: BannerWebService, private val bannerDAO: BannerDAO, private val executor: Executor) {
+class BannerRepository @Inject
+constructor(private val webservice: BannerWebService, private val bannerDAO: BannerDAO, private val executor: Executor) {
 
     fun getBanner(id: Int): LiveData<Banner> {
         refreshUser(id)

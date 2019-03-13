@@ -1,5 +1,6 @@
 package alodjinha.com.br
 
+import alodjinha.com.br.di.components.DaggerAppComponent
 import android.app.Activity
 import android.app.Application
 import com.facebook.stetho.Stetho
