@@ -9,9 +9,8 @@ import java.util.*
  */
 @Entity
 class Banner (
-    @PrimaryKey
-    var id: Int = 0,
     var linkUrl: String = "",
     var urlImagem: String = "",
-    var lastRefresh: Date? = null
+    var lastRefresh: Date? = null,
+    @PrimaryKey(autoGenerate = true) var id: Long?
 )

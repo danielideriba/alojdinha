@@ -10,12 +10,11 @@ import java.util.*
 
 @Entity
 class Produto (
-    @PrimaryKey
-    var id: Int = 0,
     var descricao: String = "",
     var nome: String = "",
     var precoDe: Int = 0,
     var precoPor: Int = 0,
     var urlImagem: String = "",
-    var lastRefresh: Date? = null
+    var lastRefresh: Date? = null,
+    @PrimaryKey(autoGenerate = true) var id: Long?
 )

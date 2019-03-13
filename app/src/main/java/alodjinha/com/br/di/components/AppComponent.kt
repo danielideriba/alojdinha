@@ -1,8 +1,8 @@
 package alodjinha.com.br.di.components
 
-import alodjinha.com.br.di.module.ActivityModule
-import alodjinha.com.br.di.module.FragmentModule
-import alodjinha.com.br.di.module.NetModule
+import alodjinha.com.br.MyApp
+import alodjinha.com.br.di.module.*
+import android.app.Application
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
@@ -29,5 +29,5 @@ interface AppComponent {
         fun build(): AppComponent
     }
 
-    fun inject(app: App)
+    fun inject(app: MyApp)
 }

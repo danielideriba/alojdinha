@@ -15,8 +15,8 @@ import java.util.concurrent.Executor
 import javax.inject.Singleton
 
 @Module(includes = [
-    NetModule::class,
     DatabaseModule::class,
+    NetModule::class,
     AppModule::class
 ])
 
@@ -43,7 +43,7 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideCategoriaRepository(
+    fun provideProdutoRepository(
         produtoWebService: ProdutoWebService,
         produtoDAO: ProdutoDAO,
         executor: Executor
