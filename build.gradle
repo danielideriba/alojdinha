@@ -4,7 +4,7 @@ buildscript {
     ext.kotlin_version = '1.3.20'
     ext.dagger2_version = "2.16"
     ext.dagger2_support = "2.15"
-    ext.appcompat = "28.0.0"
+    ext.appcompat = "27.1.1"
     ext.constraint = "1.1.3"
     ext.espresso = "3.0.2"
     ext.runner = "1.0.2"

@@ -1,5 +1,6 @@
 package alodjinha.com.br.ui.main
 
+import alodjinha.com.br.R
 import alodjinha.com.br.ui.BaseFragment
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
