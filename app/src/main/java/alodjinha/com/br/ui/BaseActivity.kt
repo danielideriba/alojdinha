@@ -1,4 +1,4 @@
-package alodjinha.com.br.ui.main
+package alodjinha.com.br.ui
 
 import alodjinha.com.br.R
 import android.os.Bundle

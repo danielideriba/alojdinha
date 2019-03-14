@@ -1,6 +1,6 @@
 package alodjinha.com.br.di.module
 
-import alodjinha.com.br.MainActivity
+import alodjinha.com.br.ui.main.MainActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

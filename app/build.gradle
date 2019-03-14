@@ -69,6 +69,9 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit"
 
+    //Images
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
     //Debug
     implementation "com.jakewharton.timber:timber:$timber"
     implementation "com.facebook.stetho:stetho:$stetho"
