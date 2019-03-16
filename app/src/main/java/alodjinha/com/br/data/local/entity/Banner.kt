@@ -11,6 +11,5 @@ import java.util.*
 class Banner (
     var linkUrl: String = "",
     var urlImagem: String = "",
-    var lastRefresh: Date? = null,
     @PrimaryKey(autoGenerate = true) var id: Long?
 )

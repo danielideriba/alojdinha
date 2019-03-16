@@ -10,7 +10,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "alodjinha.com.br"
-        minSdkVersion 15
+        minSdkVersion 17
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -70,7 +70,8 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofit"
 
     //Images
-    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation "com.squareup.picasso:picasso:$picasso"
+
 
     //Debug
     implementation "com.jakewharton.timber:timber:$timber"

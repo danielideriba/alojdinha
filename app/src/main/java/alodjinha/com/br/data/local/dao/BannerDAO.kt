@@ -17,9 +17,12 @@ interface BannerDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun save(banner: Banner): Long
 
+    @Query("SELECT * FROM banner")
+    fun loadAll(): LiveData<List<Banner>>
+
     @Query("SELECT * FROM banner WHERE id = :id")
     fun load(id: Int): LiveData<Banner>
 
-    @Query("SELECT * FROM banner WHERE id = :id AND lastRefresh = :lastRefresh LIMIT 1")
-    fun hasUser(id: Int, lastRefresh: Date): Banner
+    @Query("SELECT * FROM banner WHERE id = :id LIMIT 1")
+    fun hasBanner(id: Int): Banner
 }

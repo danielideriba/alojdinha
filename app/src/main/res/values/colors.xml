@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#5e2a84</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimaryDark">#5e2a84</color>
     <color name="colorAccent">#D81B60</color>
     <color name="tomato">#f15025</color>
     <color name="greyishBrown">#4a4a4a</color>
     <color name="greyish">#aaaaaa</color>
     <color name="dark">#2d3142</color>
     <color name="white">#fcfcfc</color>
+    <color name="indicator_selected">#d5d5d5</color>
+    <color name="indicator_default">#fcfcfc</color>
 </resources>
