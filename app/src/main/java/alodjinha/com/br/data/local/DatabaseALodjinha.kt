@@ -16,7 +16,7 @@ import android.arch.persistence.room.TypeConverters
  */
 
 @Database(entities = [Banner::class, Categoria::class, Produto::class], version = 1, exportSchema = false)
-@TypeConverters(DateConverter::class)
+//@TypeConverters(DateConverter::class)
 abstract class DatabaseALodjinha: RoomDatabase(){
 
     abstract fun bannerDAO(): BannerDAO

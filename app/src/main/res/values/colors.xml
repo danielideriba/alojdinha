@@ -8,6 +8,6 @@
     <color name="greyish">#aaaaaa</color>
     <color name="dark">#2d3142</color>
     <color name="white">#fcfcfc</color>
-    <color name="indicator_selected">#d5d5d5</color>
-    <color name="indicator_default">#fcfcfc</color>
+    <color name="indicator_selected">#4a4a4a</color>
+    <color name="indicator_default">#aaaaaa</color>
 </resources>

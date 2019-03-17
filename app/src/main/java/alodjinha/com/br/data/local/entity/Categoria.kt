@@ -11,6 +11,5 @@ import java.util.*
 class Categoria (
     var descricao: String = "",
     var urlImagem: String = "",
-    var lastRefresh: Date? = null,
     @PrimaryKey(autoGenerate = true) var id: Long?
 )

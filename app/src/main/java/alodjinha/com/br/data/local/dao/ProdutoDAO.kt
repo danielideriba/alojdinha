@@ -2,6 +2,7 @@ package alodjinha.com.br.data.local.dao
 
 import alodjinha.com.br.data.local.entity.Banner
 import alodjinha.com.br.data.local.entity.Produto
+import alodjinha.com.br.data.local.entity.ProdutoMaisVendidos
 import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
@@ -18,9 +19,12 @@ interface ProdutoDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun save(produto: Produto): Long
 
-    @Query("SELECT * FROM produto WHERE id = :id")
-    fun load(id: Int): LiveData<Produto>
+    @Query("SELECT * FROM produto")
+    fun loadAll(): LiveData<List<Produto>>
 
-    @Query("SELECT * FROM produto WHERE id = :id AND lastRefresh = :lastRefresh LIMIT 1")
+    @Query("SELECT * FROM produto")
+    fun loadAllBestSellers(): LiveData<List<ProdutoMaisVendidos>>
+
+    @Query("SELECT * FROM produto WHERE id = :id  LIMIT 1")
     fun hasUser(id: Int, lastRefresh: Date): Produto
 }

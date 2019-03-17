@@ -3,15 +3,16 @@ package alodjinha.com.br.ui.main
 import alodjinha.com.br.R
 import alodjinha.com.br.data.local.entity.Banner
 import alodjinha.com.br.ui.BaseFragment
+import alodjinha.com.br.ui.adapters.BestSellersAdapter
+import alodjinha.com.br.ui.adapters.CategoryProductAdapter
 import alodjinha.com.br.ui.adapters.ImageAdapter
-import alodjinha.com.br.utils.SLIDE_TIME_DELAY
-import alodjinha.com.br.utils.SLIDE_TIME_PERIOD
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.os.Handler
 import android.support.annotation.Nullable
+import android.support.v7.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,8 +25,11 @@ class MainFragment: BaseFragment() {
     lateinit var viewModelFactory: ViewModelProvider.Factory
     private lateinit var viewModel: MainViewModel
 
+    lateinit var adapter: CategoryProductAdapter
+    lateinit var imageAdapter: ImageAdapter
+    lateinit var bestSellersAdapter: BestSellersAdapter
+
     private  var swipeTimer = Timer()
-    private var isTimerRunning = true
     private var nextPage = 0
 
     override fun onCreateView(
@@ -39,15 +43,39 @@ class MainFragment: BaseFragment() {
         super.onActivityCreated(savedInstanceState)
 
         this.configureViewModel()
-        this.getBannerData()
+        this.setBannerData()
+        this.setCategoryProductsData()
+        this.setBestSellers()
+    }
+
+    private fun setBestSellers() {
+        var bestSellersMV = viewModel.getAllProdutoMaisVendidos()
+        bestSellersMV.observe(this, Observer {listProdutos ->
+            if(listProdutos != null){
+                bestSellersAdapter = BestSellersAdapter(view!!.context, listProdutos)
+                bestSellers.adapter = bestSellersAdapter
+            }
+        })
 
     }
 
-    private fun getBannerData(){
+    private fun setCategoryProductsData() {
+        var category = viewModel.getAllCategories()
+        category.observe(this, Observer { listCategories ->
+            if(listCategories != null){
+                adapter = CategoryProductAdapter(view!!.context, listCategories)
+                categoryProds.layoutManager = GridLayoutManager(view!!.context, 1, GridLayoutManager.HORIZONTAL, false)
+                categoryProds.adapter = adapter
+            }
+        })
+    }
+
+
+    private fun setBannerData(){
         var banners = viewModel.getAllBanners()
         banners.observe(this, Observer {listBanner->
             if(listBanner != null){
-                val imageAdapter = ImageAdapter(view!!.context, listBanner)
+                imageAdapter = ImageAdapter(view!!.context, listBanner)
                 banner.adapter = imageAdapter
             }
             setUpAutoSlider(listBanner)

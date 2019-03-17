@@ -2,6 +2,7 @@ package alodjinha.com.br.data.remote
 
 import alodjinha.com.br.data.local.entity.Banner
 import alodjinha.com.br.data.local.entity.Categoria
+import alodjinha.com.br.data.remote.model.CategoryResponse
 import retrofit2.Call
 import retrofit2.http.GET
 
@@ -11,5 +12,5 @@ import retrofit2.http.GET
 
 interface CategoriaWebService {
     @GET("/categoria")
-    fun getBanner(): Call<Categoria>
+    fun getCategory(): Call<CategoryResponse>
 }

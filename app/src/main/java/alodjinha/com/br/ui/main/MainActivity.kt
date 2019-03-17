@@ -41,10 +41,10 @@ class MainActivity : BaseActivity(){
             }
         }
 
-        this.showLoginFragment(savedInstanceState)
+        this.showFragment(savedInstanceState)
     }
 
-    private fun showLoginFragment(savedInstanceState: Bundle?) {
+    private fun showFragment(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {
             val fragment = MainFragment()
             supportFragmentManager.beginTransaction()

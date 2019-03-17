@@ -47,6 +47,8 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$appcompat"
     implementation "com.android.support.constraint:constraint-layout:$constraint"
     implementation "com.android.support:design:$appcompat"
+    implementation "com.android.support:recyclerview-v7:$appcompat"
+    implementation "com.android.support:cardview-v7:$appcompat"
 
     // ViewModel and LiveData
     implementation "android.arch.lifecycle:extensions:$live_data"

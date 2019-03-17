@@ -17,9 +17,9 @@ interface CategoriaDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun save(categoria: Categoria): Long
 
-    @Query("SELECT * FROM categoria WHERE id = :id")
-    fun load(id: Int): LiveData<Categoria>
+    @Query("SELECT * FROM categoria")
+    fun loadAll(): LiveData<List<Categoria>>
 
-    @Query("SELECT * FROM categoria WHERE id = :id AND lastRefresh = :lastRefresh LIMIT 1")
-    fun hasUser(id: Int, lastRefresh: Date): Categoria
+    @Query("SELECT * FROM categoria WHERE id = :id LIMIT 1")
+    fun hasUser(id: Int): Categoria
 }

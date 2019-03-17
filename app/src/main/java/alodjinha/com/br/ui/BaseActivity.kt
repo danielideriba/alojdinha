@@ -37,13 +37,4 @@ abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
         }
         return super.onOptionsItemSelected(item)
     }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.menu, menu)
-
-        return super.onCreateOptionsMenu(menu)
-    }
-
-
 }
