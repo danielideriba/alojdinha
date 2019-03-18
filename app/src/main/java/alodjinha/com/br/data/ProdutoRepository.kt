@@ -1,11 +1,9 @@
 package alodjinha.com.br.data
 
 import alodjinha.com.br.data.local.dao.ProdutoDAO
-import alodjinha.com.br.data.local.entity.Categoria
 import alodjinha.com.br.data.local.entity.Produto
-import alodjinha.com.br.data.local.entity.ProdutoMaisVendidos
 import alodjinha.com.br.data.remote.ProdutoWebService
-import alodjinha.com.br.data.remote.model.CategoryResponse
+import alodjinha.com.br.data.remote.model.ProdutoMaisVendidos
 import alodjinha.com.br.data.remote.model.ProdutoResponse
 import android.arch.lifecycle.LiveData
 import retrofit2.Call
@@ -24,7 +22,7 @@ import javax.inject.Singleton
 class ProdutoRepository
 @Inject constructor(private val webservice: ProdutoWebService, private val produtoDAO: ProdutoDAO, private val executor: Executor) {
 
-    fun getAllProdutoBestSellers(): LiveData<List<ProdutoMaisVendidos>> {
+    fun getAllProdutoBestSellers(): LiveData<List<Produto>> {
         saveData()
         return produtoDAO.loadAllBestSellers()
     }
@@ -34,7 +32,7 @@ class ProdutoRepository
             val hasBanners = produtoDAO.loadAll() != null
 
             if(hasBanners) {
-                webservice.getMostSold().enqueue(object : Callback<ProdutoResponse> {
+                webservice.getBestSellers().enqueue(object : Callback<ProdutoResponse> {
                     override fun onResponse(call: Call<ProdutoResponse>, response: Response<ProdutoResponse>) {
                         executor.execute {
                             if(response.isSuccessful) {

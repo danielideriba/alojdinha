@@ -53,6 +53,7 @@ class MainFragment: BaseFragment() {
         bestSellersMV.observe(this, Observer {listProdutos ->
             if(listProdutos != null){
                 bestSellersAdapter = BestSellersAdapter(view!!.context, listProdutos)
+                bestSellers.layoutManager = GridLayoutManager(view!!.context, 1, GridLayoutManager.VERTICAL, false)
                 bestSellers.adapter = bestSellersAdapter
             }
         })

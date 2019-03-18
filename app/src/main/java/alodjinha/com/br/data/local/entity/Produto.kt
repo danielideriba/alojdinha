@@ -12,6 +12,8 @@ import java.util.*
 class Produto (
     var descricao: String = "",
     var nome: String = "",
+    var precoDe: String = "",
+    var precoPor: String = "",
     var urlImagem: String = "",
     @PrimaryKey(autoGenerate = true) var id: Long?
 )

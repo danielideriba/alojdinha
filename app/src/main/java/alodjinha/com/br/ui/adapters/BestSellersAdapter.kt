@@ -1,8 +1,8 @@
 package alodjinha.com.br.ui.adapters
 
 import alodjinha.com.br.R
-import alodjinha.com.br.data.local.entity.ProdutoMaisVendidos
-import alodjinha.com.br.utils.Utils
+import alodjinha.com.br.data.local.entity.Produto
+import alodjinha.com.br.data.remote.model.ProdutoMaisVendidos
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -15,11 +15,11 @@ import kotlinx.android.synthetic.main.product_best_sellers_item.view.*
  * Created by danielideriba on 17,March,2019
  */
 
-class BestSellersAdapter(val context: Context, val items : List<ProdutoMaisVendidos>) : RecyclerView.Adapter<ViewHolderBestSellers>() {
+class BestSellersAdapter(val context: Context, val items : List<Produto>) : RecyclerView.Adapter<ViewHolderBestSellers>() {
     override fun onBindViewHolder(holder: ViewHolderBestSellers, position: Int) {
-        holder?.ivTitulo?.text = items.get(position).descricao
-        holder?.tvPrecoDe?.text = Utils.currency(items.get(position).precoDe)
-        holder?.tvPrecoPor?.text = Utils.currency(items.get(position).precoPor)
+        holder?.ivTitulo?.text = items.get(position).nome
+        holder?.tvPrecoDe?.text = items.get(position).precoDe
+        holder?.tvPrecoPor?.text = items.get(position).precoPor
         Picasso.get().load(items.get(position).urlImagem).into(holder?.ivFoto)
     }
 

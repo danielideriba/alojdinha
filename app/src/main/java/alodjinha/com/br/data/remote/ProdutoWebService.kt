@@ -1,6 +1,7 @@
 package alodjinha.com.br.data.remote
 
 import alodjinha.com.br.data.local.entity.Produto
+import alodjinha.com.br.data.remote.model.ProdutoMaisVendidos
 import alodjinha.com.br.data.remote.model.ProdutoResponse
 import retrofit2.Call
 import retrofit2.http.*
@@ -14,7 +15,7 @@ interface ProdutoWebService {
     fun getBanner(): Call<Produto>
 
     @GET("/produto/maisvendidos")
-    fun getMostSold(): Call<ProdutoResponse>
+    fun getBestSellers(): Call<ProdutoResponse>
 
     @GET("/produto/{id}")
     fun getProduct(@Path("produtoId") produtoId: Int): Call<Produto>
