@@ -28,6 +28,7 @@ class ImageAdapter (
         Picasso.get().load(photoSlide?.get(position)?.urlImagem).into(view.imageView)
 
         container?.addView(view,0)
+
         return view
     }
 

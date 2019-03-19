@@ -6,23 +6,25 @@ import alodjinha.com.br.data.ProdutoRepository
 import alodjinha.com.br.data.local.entity.Banner
 import alodjinha.com.br.data.local.entity.Categoria
 import alodjinha.com.br.data.local.entity.Produto
-import alodjinha.com.br.data.remote.model.ProdutoMaisVendidos
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.ViewModel
+import android.database.Observable
+import java.util.*
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor(var bannerRepository: BannerRepository,
                                         var categoryRepository: CategoriaRepository,
                                         var produtoRepository: ProdutoRepository) : ViewModel() {
-    fun getAllBanners(): LiveData<List<Banner>> {
-        return bannerRepository.getAllBanners()
+    fun getAllBanners(mainFragment: MainFragment): LiveData<List<Banner>> {
+//    fun getAllBanners(mainFragment: MainFragment): Observable<List<Banner>> {
+        return bannerRepository.getAllBanners(mainFragment)
     }
 
-    fun getAllCategories() : LiveData<List<Categoria>> {
-        return categoryRepository.getAllCategories()
+    fun getAllCategories(mainFragment: MainFragment): LiveData<List<Categoria>> {
+        return categoryRepository.getAllCategories(mainFragment)
     }
 
-    fun getAllProdutoMaisVendidos(): LiveData<List<Produto>>{
-        return produtoRepository.getAllProdutoBestSellers()
+    fun getAllProdutoMaisVendidos(mainFragment: MainFragment): LiveData<List<Produto>>{
+        return produtoRepository.getAllProdutoBestSellers(mainFragment)
     }
 }

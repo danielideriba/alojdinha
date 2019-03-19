@@ -9,6 +9,7 @@ import alodjinha.com.br.ui.adapters.ImageAdapter
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
+import android.opengl.Visibility
 import android.os.Bundle
 import android.os.Handler
 import android.support.annotation.Nullable
@@ -49,32 +50,41 @@ class MainFragment: BaseFragment() {
     }
 
     private fun setBestSellers() {
-        var bestSellersMV = viewModel.getAllProdutoMaisVendidos()
+        loadingPanel.visibility = View.VISIBLE
+        var bestSellersMV = viewModel.getAllProdutoMaisVendidos(this)
         bestSellersMV.observe(this, Observer {listProdutos ->
             if(listProdutos != null){
                 bestSellersAdapter = BestSellersAdapter(view!!.context, listProdutos)
                 bestSellers.layoutManager = GridLayoutManager(view!!.context, 1, GridLayoutManager.VERTICAL, false)
                 bestSellers.adapter = bestSellersAdapter
+
+                loadingPanel.visibility = View.GONE
             }
         })
 
     }
 
     private fun setCategoryProductsData() {
-        var category = viewModel.getAllCategories()
+        loadingPanel.visibility = View.VISIBLE
+        var category = viewModel.getAllCategories(this)
         category.observe(this, Observer { listCategories ->
             if(listCategories != null){
                 adapter = CategoryProductAdapter(view!!.context, listCategories)
                 categoryProds.layoutManager = GridLayoutManager(view!!.context, 1, GridLayoutManager.HORIZONTAL, false)
                 categoryProds.adapter = adapter
+
+                loadingPanel.visibility = View.GONE
             }
         })
     }
 
 
     private fun setBannerData(){
-        var banners = viewModel.getAllBanners()
+        loadingPanel.visibility = View.VISIBLE
+        val banners = viewModel.getAllBanners(this)
+
         banners.observe(this, Observer {listBanner->
+            loadingPanel.visibility = View.GONE
             if(listBanner != null){
                 imageAdapter = ImageAdapter(view!!.context, listBanner)
                 banner.adapter = imageAdapter
