@@ -3,6 +3,7 @@
           package="alodjinha.com.br">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
             android:name=".MyApp"
@@ -21,6 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".ui.productDetail.ProductDetailActivity" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.about.AboutActivity" android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

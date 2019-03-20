@@ -26,7 +26,6 @@ class ImageAdapter (
         val view:View = LayoutInflater.from(context).inflate(R.layout.single_image_page, container,false)
 
         Picasso.get().load(photoSlide?.get(position)?.urlImagem).into(view.imageView)
-
         container?.addView(view,0)
 
         return view

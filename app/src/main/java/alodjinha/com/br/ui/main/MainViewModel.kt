@@ -16,7 +16,6 @@ class MainViewModel @Inject constructor(var bannerRepository: BannerRepository,
                                         var categoryRepository: CategoriaRepository,
                                         var produtoRepository: ProdutoRepository) : ViewModel() {
     fun getAllBanners(mainFragment: MainFragment): LiveData<List<Banner>> {
-//    fun getAllBanners(mainFragment: MainFragment): Observable<List<Banner>> {
         return bannerRepository.getAllBanners(mainFragment)
     }
 

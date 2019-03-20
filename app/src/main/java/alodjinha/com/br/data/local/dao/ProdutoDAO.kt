@@ -24,5 +24,5 @@ interface ProdutoDAO {
     fun loadAllBestSellers(): LiveData<List<Produto>>
 
     @Query("SELECT * FROM produto WHERE id = :id  LIMIT 1")
-    fun hasUser(id: Int): Produto
+    fun hasUser(id: Int): LiveData<Produto>
 }

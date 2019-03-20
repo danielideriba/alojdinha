@@ -23,6 +23,10 @@ import javax.inject.Singleton
 class ProdutoRepository
 @Inject constructor(private val webservice: ProdutoWebService, private val produtoDAO: ProdutoDAO, private val executor: Executor) {
 
+    fun getProduto(idProduto: Int): LiveData<Produto>{
+        return produtoDAO.hasUser(idProduto)
+    }
+
     fun getAllProdutoBestSellers(mainFragment: MainFragment): LiveData<List<Produto>> {
         saveData(mainFragment)
         return produtoDAO.loadAllBestSellers()
